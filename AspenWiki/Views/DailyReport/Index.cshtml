@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AspenWiki.Models.DailyReport>
+
+@{
+    ViewBag.Title = "Daily Report";
+}
+
+<h2>
+    @Html.ActionLink("<< Previous Day", "Index", new { date = @ViewBag.PreviousDate })
+    &nbsp;&nbsp;&nbsp;
+    @ViewBag.DateDisplay
+    &nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Next Day >>", "Index", new { date = @ViewBag.NextDate })
+</h2>
+
+<p>
+    @Html.ActionLink("Create My Report", "Create", new { userId = @ViewBag.UserId, date = @ViewBag.Date }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Create All Reports", "CreateAll", new { userId = @ViewBag.UserId, date = @ViewBag.Date }, new { @class = "btn btn-default pull-right" })
+</p>
+<p>
+    @ViewBag.ReportCount Reports
+</p>
+<table class="table">
+    <tr>
+        <th width="100">Name</th>       
+        <th>Description</th>       
+        <th>Comment</th>
+        <th width="120">Edit</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(item1 => item.User.FullName)</td>
+        <td class="multiline">@Html.DisplayFor(item1 => item.Description)</td>
+        <td class="multiline">@Html.DisplayFor(item1 => item.Comment)</td> 
+        <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+        @if(ViewBag.UserId=="zhangp"){
+            @Html.ActionLink("Del", "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
+        }
+        </td>
+    </tr>
+    
+}
+</table>

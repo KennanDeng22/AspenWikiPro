@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspenWiki", "AspenWiki\AspenWiki.csproj", "{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{594A4884-AFB6-473D-8C69-4E032C2167DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelReportUpdate", "ExcelReportUpdate\ExcelReportUpdate.csproj", "{17A4A54C-63EF-44CF-9757-444B3A77C7F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2835FDBA-96BA-4D5C-850D-A909BB12F4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594A4884-AFB6-473D-8C69-4E032C2167DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594A4884-AFB6-473D-8C69-4E032C2167DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594A4884-AFB6-473D-8C69-4E032C2167DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594A4884-AFB6-473D-8C69-4E032C2167DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A4A54C-63EF-44CF-9757-444B3A77C7F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A4A54C-63EF-44CF-9757-444B3A77C7F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A4A54C-63EF-44CF-9757-444B3A77C7F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A4A54C-63EF-44CF-9757-444B3A77C7F8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

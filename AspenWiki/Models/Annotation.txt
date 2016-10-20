@@ -1,0 +1,15 @@
+﻿[Key]
+[Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+public int Id{}
+[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+public Guid{}
+
+[ForeignKey("fkID")]
+[Column("")]
+
+[NotMapped] table or column
+
+EF db query:
+Single
+SingleOrDefault
+First和FirstOrDefault方法

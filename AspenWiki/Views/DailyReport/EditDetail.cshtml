@@ -1,0 +1,62 @@
+﻿@model AspenWiki.Models.DailyReport
+
+@{
+    ViewBag.Title = "Edit Daily Report";
+}
+
+<h2>Edit Daily Report</h2>
+<h4>
+    User: @Html.DisplayFor(model => model.UserId)<br />
+    Date: @Model.ReportDate.ToLongDateString()
+</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.UserId)
+        @Html.HiddenFor(model => model.ReportDate)
+
+        <table class="table">
+            <tr>
+                <th width="10%">Task Name</th>
+                <th width="45%">Description</th> 
+                <th width="45%">Issues</th>
+                <th width="0"></th>
+            </tr>
+            @{var count = 0;}
+            @foreach (var detail in Model.ReportDetails)
+            {
+                <tr>
+                    <td width="10%">@Html.DropDownListFor(modelItem => detail.WorkItemId, new SelectList(ViewBag.WorkItems, "Id", "Name", detail.WorkItemId),new { @class = "form-control", Name = "ReportDetails[" + @count.ToString() + "].WorkItemId" })</td>
+                    <td width="45%">@Html.TextAreaFor(modelItem => detail.Description, new { @class = "form-control", Name="ReportDetails[" + @count.ToString() + "].Description", rows="3", cols="80"})</td>               
+                    <td width="45%">@Html.TextAreaFor(modelItem => detail.Comment, new { @class = "form-control", Name = "ReportDetails[" + @count.ToString() + "].Comment", rows="3", cols="80"})</td>
+                    <td>
+                        @Html.HiddenFor(modelItem => detail.WorkingHours, new { @class = "form-control", Name="ReportDetails[" + @count.ToString() + "].WorkingHours" })
+                        @Html.HiddenFor(modelItem => detail.DefectId, new { @class = "form-control", Name = "ReportDetails[" + @count.ToString() + "].DefectId" })
+                        @Html.HiddenFor(modelItem => detail.State, new { htmlAttributes = new { @class = "form-control", Name="ReportDetails[" + @count.ToString() + "].State" } })
+                        @Html.HiddenFor(modelItem => detail.Id, new{Name= "ReportDetails["+@count.ToString()+"].Id"})                        
+                    </td>
+                </tr>
+                count++;
+            }
+        </table>      
+       
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

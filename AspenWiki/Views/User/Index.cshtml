@@ -1,0 +1,62 @@
+﻿@model IEnumerable<AspenWiki.Models.User>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CQLoginName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupervisorId)
+        </th>
+        <th></th><!-- Location,CQLoginName,FullName,Email,SupervisorId -->
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CQLoginName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupervisorId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id })<!-- |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }) -->
+        </td>
+    </tr>
+}
+
+</table>

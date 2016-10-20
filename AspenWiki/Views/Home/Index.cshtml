@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>AspenWiki</h1>
+    <p class="lead">AspenWiki is an internal tool which includes wiki, defects and daily reports.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Wiki</h2>
+        <p>
+        </p>
+        <p><a class="btn btn-default" href="#">TODO &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Defects</h2>
+        <p></p>
+        <p>
+            @Html.ActionLink("My Defects »", "Mine", "Defect", null, new { @class = "btn btn-default" })
+        </p>
+        <p>
+            @Html.ActionLink("All Defects »", "Index", "Defect", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Daily reports</h2>
+        <p></p>
+        <p>
+            @Html.ActionLink("View All Reports »", "Index", "DailyReport", null, new { @class = "btn btn-default" })
+        </p>
+        <p>
+            @Html.ActionLink("Create My Report »", "Create", "DailyReport", new { userId = @ViewBag.UserId, date = @ViewBag.Date }, new { @class = "btn btn-default" })
+        </p>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AspenWiki.Models.DailyReport>
+
+@{
+    ViewBag.Title = "Daily Report";
+}
+
+<h2>
+    @ViewBag.DateDisplay
+    &nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Previous Day", "Index", new { date = @ViewBag.PreviousDate })
+    &nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Next Day", "Index", new { date = @ViewBag.NextDate })
+</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { userId = @ViewBag.UserId, date = @ViewBag.Date }, new { @class = "btn btn-default" })
+</p>
+
+@foreach (var item in Model)
+{
+    <div style="float:left">
+        User: @Html.DisplayFor(modelItem => item.UserId)
+        Date: @item.ReportDate.ToLongDateString()
+    </div>
+    <div style="float:right">
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
+    </div>
+    <table class="table">
+        <tr>
+            <th width="200">Task Name</th>
+            <th width="100">Defect Id</th>
+            <th>Description</th>
+            <th width="100">State</th>
+            <th width="80">Hours</th>
+            <th>Comment</th>
+        </tr>
+        @foreach (var detail in item.ReportDetails)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => detail.WorkItem.Name)</td>
+                <td>@Html.DisplayFor(modelItem => detail.DefectId)</td>
+                <td>@Html.DisplayFor(modelItem => detail.Description)</td>
+                <td>@Html.DisplayFor(modelItem => detail.State)</td>
+                <td>@Html.DisplayFor(modelItem => detail.WorkingHours)</td>
+                <td>@Html.DisplayFor(modelItem => detail.Comment)</td>
+            </tr>
+        }
+    </table>
+}
+

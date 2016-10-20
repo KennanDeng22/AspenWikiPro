@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Admin Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Admin</h2>
+        <p>
+        </p>
+        <p><a class="btn btn-default" href="#">TODO &raquo;</a></p>
+        <p>
+            @Html.ActionLink("Import Defects »", "ImportDefects", "Admin", null, new { @class = "btn btn-default" })
+            &nbsp;Last Import: @ViewBag.DefectLastImportTime
+        </p>
+        <p>
+            @Html.ActionLink("Manage Users", "Index", "User", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+</div>

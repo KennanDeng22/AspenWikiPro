@@ -1,0 +1,6 @@
+﻿Manage.cshtml
+============
+@Html.Action("RemoveAccountList")
+
+Startup.cs
+============
